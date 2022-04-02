@@ -18,11 +18,10 @@ class BrandsController extends AppController
     public function index()
     {
         $brands = $this->paginate($this->Brands);
-
         $this->set(compact('brands'));
-       /*  echo json_encode($brands);
+       /*echo json_encode($brands);
 
-        exit(); */
+        exit();*/
     }
 
     /**

@@ -20,11 +20,7 @@ class Cars extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('year', 'date', [
-            'default' => null,
-            'null' => false,
-        ]);
-        $table->addColumn('modified', 'datetime', [
+        $table->addColumn('year', 'year', [
             'default' => null,
             'null' => false,
         ]);

@@ -44,9 +44,8 @@ class CarsTable extends Table
         $this->setTable('cars');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
-
         $this->addBehavior('Timestamp');
-
+        
         $this->belongsTo('Brands', [
             'foreignKey' => 'brand_id',
         ]);
@@ -71,9 +70,9 @@ class CarsTable extends Table
             ->notEmptyString('name');
 
         $validator
-            ->date('year')
+            ->scalar('year')
             ->requirePresence('year', 'create')
-            ->notEmptyDate('year');
+            ->notEmptyString('year');
 
         return $validator;
     }

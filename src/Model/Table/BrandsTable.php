@@ -68,4 +68,5 @@ class BrandsTable extends Table
 
         return $validator;
     }
+    
 }

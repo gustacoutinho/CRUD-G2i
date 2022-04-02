@@ -30,7 +30,6 @@ class Car extends Entity
     protected $_accessible = [
         'name' => true,
         'year' => true,
-        'modified' => true,
         'brand_id' => true,
         'brand' => true,
     ];

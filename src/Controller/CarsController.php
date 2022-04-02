@@ -100,7 +100,7 @@ class CarsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $car = $this->Cars->get($id);
         if ($this->Cars->delete($car)) {
-            $this->Flash->success(__('The car has been deleted.'));
+            $this->Flash->success(__('O carro foi deletado com Sucesso.'));
         } else {
             $this->Flash->error(__('The car could not be deleted. Please, try again.'));
         }
