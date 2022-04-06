@@ -53,11 +53,11 @@ class CarsController extends AppController
         if ($this->request->is('post')) {
             $car = $this->Cars->patchEntity($car, $this->request->getData());
             if ($this->Cars->save($car)) {
-                $this->Flash->success(__('The car has been saved.'));
+                $this->Flash->success(__('O carro foi salvo com sucesso!.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The car could not be saved. Please, try again.'));
+            $this->Flash->error(__('Não foi possível salvar o carro. Por favor, tente novamente!'));
         }
         $brands = $this->Cars->Brands->find('list', ['limit' => 200])->all();
         $this->set(compact('car', 'brands'));
@@ -78,11 +78,11 @@ class CarsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $car = $this->Cars->patchEntity($car, $this->request->getData());
             if ($this->Cars->save($car)) {
-                $this->Flash->success(__('The car has been saved.'));
+                $this->Flash->success(__('Alterações salvas com sucesso!'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The car could not be saved. Please, try again.'));
+            $this->Flash->error(__('Não foi possível salvar alterações. Por favor, tente novamente!'));
         }
         $brands = $this->Cars->Brands->find('list', ['limit' => 200])->all();
         $this->set(compact('car', 'brands'));
@@ -100,9 +100,9 @@ class CarsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $car = $this->Cars->get($id);
         if ($this->Cars->delete($car)) {
-            $this->Flash->success(__('O carro foi deletado com Sucesso.'));
+            $this->Flash->success(__('O Carro foi deletado com Sucesso.'));
         } else {
-            $this->Flash->error(__('The car could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Não foi possível deletar o Carro.'));
         }
 
         return $this->redirect(['action' => 'index']);

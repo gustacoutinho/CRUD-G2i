@@ -74,6 +74,10 @@ class CarsTable extends Table
             ->requirePresence('year', 'create')
             ->notEmptyString('year');
 
+        $validator //inserido para ser campo obrigatório em addCars.php
+            ->scalar('brand_id')
+            ->requirePresence('brand_id', 'create')
+            ->notEmptyString('brand_id');
         return $validator;
     }
 

@@ -29,7 +29,7 @@
                     <td class="actions">
                         <?= $this->Html->link(__('Ver'), ['action' => 'view', $car->id]) ?>
                         <?= $this->Html->link(__('Editar'), ['action' => 'edit', $car->id]) ?>
-                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $car->id], ['confirm' => __('Are you sure you want to delete # {0}?', $car->id)]) ?>
+                        <?= $this->Html->link(__('Remover'), 'javascript:void(0)',["data-target" => "#getBrandId", "data-toggle" => "modal", "onclick" => "coletarDados('cars', ".$car->id.")", "class" => "adicionar"]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -37,13 +37,6 @@
         </table>
     </div>
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('primeira')) ?>
-            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('próxima') . ' >') ?>
-            <?= $this->Paginator->last(__('última') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Página {{page}} de {{pages}}, listando {{current}} registro(s) de {{count}} no total')) ?></p>
+        <p><?= $this->Paginator->counter(__('Listando {{current}} registro(s) de {{count}} no total')) ?></p>
     </div>
 </div>

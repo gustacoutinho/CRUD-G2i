@@ -40,7 +40,7 @@ class BrandsTable extends Table
         parent::initialize($config);
 
         $this->setTable('brands');
-        $this->setDisplayField('id');
+        $this->setDisplayField('descricao'); //alterado para vizualização em addCars.php
         $this->setPrimaryKey('id');
 
         $this->hasMany('Cars', [

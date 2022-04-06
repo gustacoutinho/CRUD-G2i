@@ -19,7 +19,11 @@
                 <legend><?= __('Novo Carro') ?></legend>
                 <?php
                     echo $this->Form->control('name', ['placeholder'=>'Insira o nome do veículo', 'label'=> 'Nome']);
-                    echo $this->Form->control('year', ['label' => 'Ano']);
+                    echo $this->Form->control('year', [
+                        'label' => 'Ano',
+                        'min' => date('Y') - 50,
+                        'max' => date('Y') - 1,
+                    ]);
                     echo $this->Form->control('brand_id', ['options' => $brands, 'empty' => true, 'label' => 'Marca']);
                 ?>
             </fieldset>

@@ -1,19 +1,25 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Brand[]|\Cake\Collection\CollectionInterface $brands
- */
+$pivo;
 ?>
-<div class="brands index content">
-    <?= $this->Html->link(__('New Brand'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Brands') ?></h3>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  </body>
+  
+    <div class="brands index content">
+    <?= $this->Html->link(__('Nova Marca'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Marcas') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('descricao') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= $this->Paginator->sort('descricao', ['label'=>"Descrição"]) ?></th>
+                    <th class="actions"><?= __('Opções') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,23 +28,17 @@
                     <td><?= $this->Number->format($brand->id) ?></td>
                     <td><?= h($brand->descricao) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $brand->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $brand->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $brand->id], ['confirm' => __('Are you sure you want to delete # {0}?', $brand->id)]) ?>
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $brand->id]) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $brand->id]) ?>
+                        <?= $this->Html->link(__('Remover'), 'javascript:void(0)',["data-target" => "#getBrandId", "data-toggle" => "modal", "onclick" => "coletarDados('brands', ".$brand->id.")", "class" => "adicionar"]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
+    </div>  
+
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        <p><?= $this->Paginator->counter(__('Listando {{current}} registro(s) de {{count}} no total')) ?></p>
     </div>
 </div>

@@ -54,11 +54,11 @@ class BrandsController extends AppController
         if ($this->request->is('post')) {
             $brand = $this->Brands->patchEntity($brand, $this->request->getData());
             if ($this->Brands->save($brand)) {
-                $this->Flash->success(__('The brand has been saved.'));
+                $this->Flash->success(__('A Marca foi salva com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The brand could not be saved. Please, try again.'));
+            $this->Flash->error(__('Não foi possivel salvar. Por favor, tente novamente.'));
         }
         $this->set(compact('brand'));
     }
@@ -78,11 +78,11 @@ class BrandsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $brand = $this->Brands->patchEntity($brand, $this->request->getData());
             if ($this->Brands->save($brand)) {
-                $this->Flash->success(__('The brand has been saved.'));
+                $this->Flash->success(__('Alterações salvas com sucesso!'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The brand could not be saved. Please, try again.'));
+            $this->Flash->error(__('Não foi possível salvar alterações. Por favor, tente novamente!'));
         }
         $this->set(compact('brand'));
     }
@@ -99,9 +99,9 @@ class BrandsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $brand = $this->Brands->get($id);
         if ($this->Brands->delete($brand)) {
-            $this->Flash->success(__('The brand has been deleted.'));
+            $this->Flash->success(__('A Marca foi deletada com sucesso!'));
         } else {
-            $this->Flash->error(__('The brand could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Não foi possível salvar!'));
         }
 
         return $this->redirect(['action' => 'index']);

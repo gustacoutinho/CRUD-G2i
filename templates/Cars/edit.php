@@ -9,11 +9,7 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Opções') ?></h4>
-            <?= $this->Form->postLink(
-                __('Deletar'),
-                ['action' => 'delete', $car->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $car->id), 'class' => 'side-nav-item']
-            ) ?>
+            <?= $this->Html->link(__('Remover'), 'javascript:void(0)',["data-target" => "#getDelete", "data-toggle" => "modal", "onclick" => "coletarDados('cars', ".$car->id.")", "class" => "adicionar"]) ?>
             <?= $this->Html->link(__('Listar Carros'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
